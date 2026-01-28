@@ -23,28 +23,28 @@ public class Taschenrechner {
         if (rechenoperation.equals("+")) {
             zahl3 = zahl2 + zahl1;
             System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("plus")) {
+        } else if (rechenoperation.equalsIgnoreCase("plus")) {
             zahl3 = zahl2 + zahl1;
             System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("addition")) {
+        } else if (rechenoperation.equalsIgnoreCase("addition")) {
             zahl3 = zahl2 + zahl1;
             System.out.println("Das Ergebnis ist " + zahl3);
         } else if (rechenoperation.equals("-")) {
             zahl3 = zahl1 - zahl2;
             System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("minus")) {
+        } else if (rechenoperation.equalsIgnoreCase("minus")) {
             zahl3 = zahl1 - zahl2;
             System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("subtraktion")) {
+        } else if (rechenoperation.equalsIgnoreCase("subtraktion")) {
             zahl3 = zahl1 - zahl2;
             System.out.println("Das Ergebnis ist " + zahl3);
         } else if (rechenoperation.equals("*")) {
             zahl3 = zahl1 * zahl2;
             System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("mal")) {
+        } else if (rechenoperation.equalsIgnoreCase("mal")) {
             zahl3 = zahl1 * zahl2;
             System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("multiplikation")) {
+        } else if (rechenoperation.equalsIgnoreCase("multiplikation")) {
             zahl3 = zahl1 * zahl2;
             System.out.println("Das Ergebnis ist " + zahl3);
         } else if (rechenoperation.equals("/")) {
@@ -54,15 +54,14 @@ public class Taschenrechner {
                 zahl3 = zahl1 / zahl2;
                 System.out.println("Das Ergebnis ist " + zahl3);
             }
-        } else if (rechenoperation.equals("geteilt durch")) {
+        } else if (rechenoperation.equalsIgnoreCase("geteilt durch")) {
             if (zahl2 == 0) {
                 System.out.println("Nicht durch 0 teilen!");
             } else {
                 zahl3 = zahl1 / zahl2;
                 System.out.println("Das Ergebnis ist " + zahl3);
             }
-        }
-        else if (rechenoperation.equals("division")) {
+        } else if (rechenoperation.equalsIgnoreCase("division")) {
             if (zahl2 == 0) {
                 System.out.println("Nicht durch 0 teilen!");
             } else {
@@ -73,6 +72,6 @@ public class Taschenrechner {
             System.out.println("Keine valide Rechenoperation");
         }
 
-            scanner.close();
+        scanner.close();
     }
 }
