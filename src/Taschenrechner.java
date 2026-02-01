@@ -3,75 +3,59 @@ import java.util.Scanner;
 public class Taschenrechner {
     public static void main(String[] args) {
 
-        double zahl1;
-        double zahl2;
-        double zahl3;
-        String rechenoperation;
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Erste Zahl: ");
-        zahl1 = scanner.nextDouble();
+        double num1;
+        double num2;
+        String rechenoperation;
+        double ergebnis = 0;
+        boolean validerOperator = true;
+
+        System.out.print("Erste Zahl eingeben: ");
+        num1 = scanner.nextDouble();
         scanner.nextLine();
 
-        System.out.print("Rechenoperation eingeben: ");
+        System.out.print("Rechenoperatorion eingeben: ");
         rechenoperation = scanner.nextLine();
 
         System.out.print("Zweite Zahl eingeben: ");
-        zahl2 = scanner.nextDouble();
+        num2 = scanner.nextDouble();
+        scanner.nextLine();
 
-        if (rechenoperation.equals("+")) {
-            zahl3 = zahl2 + zahl1;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equalsIgnoreCase("plus")) {
-            zahl3 = zahl2 + zahl1;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equalsIgnoreCase("addition")) {
-            zahl3 = zahl2 + zahl1;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("-")) {
-            zahl3 = zahl1 - zahl2;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equalsIgnoreCase("minus")) {
-            zahl3 = zahl1 - zahl2;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equalsIgnoreCase("subtraktion")) {
-            zahl3 = zahl1 - zahl2;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("*")) {
-            zahl3 = zahl1 * zahl2;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equalsIgnoreCase("mal")) {
-            zahl3 = zahl1 * zahl2;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equalsIgnoreCase("multiplikation")) {
-            zahl3 = zahl1 * zahl2;
-            System.out.println("Das Ergebnis ist " + zahl3);
-        } else if (rechenoperation.equals("/")) {
-            if (zahl2 == 0) {
-                System.out.println("Nicht durch 0 teilen!");
-            } else {
-                zahl3 = zahl1 / zahl2;
-                System.out.println("Das Ergebnis ist " + zahl3);
+        switch(rechenoperation) {
+
+            case
+                "+", "plus", "Plus", "addieren", "Addition", "Addieren", "addition"
+                -> ergebnis = num1 + num2;
+
+            case
+                "-", "minus", "Minus", "Subtraktion", "subtraktion", "Subtrahieren", "subtrahieren"
+                -> ergebnis = num1 - num2;
+
+            case
+                "*", "mal", "Mal", "Multiplikation", "multiplikation", "Multiplizieren", "mulitplizieren"
+                -> ergebnis = num1 * num2;
+
+            case
+                "/", "geteilt durch", "Geteilt durch", "Dividieren", "dividieren", "Division", "division"-> {
+                if(num2 == 0) {
+                    validerOperator = false;
+                    ergebnis = 0;
+
+                } else {
+                    ergebnis = num1 / num2;
+                }
             }
-        } else if (rechenoperation.equalsIgnoreCase("geteilt durch")) {
-            if (zahl2 == 0) {
-                System.out.println("Nicht durch 0 teilen!");
-            } else {
-                zahl3 = zahl1 / zahl2;
-                System.out.println("Das Ergebnis ist " + zahl3);
-            }
-        } else if (rechenoperation.equalsIgnoreCase("division")) {
-            if (zahl2 == 0) {
-                System.out.println("Nicht durch 0 teilen!");
-            } else {
-                zahl3 = zahl1 / zahl2;
-                System.out.println("Das Ergebnis ist " + zahl3);
-            }
+
+            case "^", "Hoch", "hoch" -> ergebnis = Math.pow(num1, num2);
+
+            default -> validerOperator = false;
+
+        } if(validerOperator) {
+            System.out.println("Das Ergebnis ist " + ergebnis);
+
         } else {
-            System.out.println("Keine valide Rechenoperation");
+            System.out.println("Keine valide Rechenoperation!");
         }
-
-        scanner.close();
     }
 }
